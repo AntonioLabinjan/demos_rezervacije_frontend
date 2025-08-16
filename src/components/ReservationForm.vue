@@ -5,6 +5,7 @@
       <input v-model="form.discordNickname" placeholder="STUDENT (Discord nick)" required class="input" />
       <input type="date" v-model="form.date" required class="input" />
       <input type="time" v-model="form.time" required class="input" />
+      <input v-model="form.course" placeholder="KOLEGIJ" required class="input" />
       <textarea v-model="form.description" placeholder="KRATKI OPIS PROBLEMA" required class="input" />
       <button type="submit" class="btn">Pošalji zahtjev</button>
       <p v-if="error" class="text-red-500">{{ error }}</p>
@@ -18,8 +19,10 @@
       <ul v-else class="divide-y">
         <li v-for="(r, i) in reservations" :key="i" class="py-2">
           <p><strong>👤 {{ r.discordNickname }}</strong></p>
+          <p><strong> {{ r.course }}</strong></p>
           <p>📅 {{ r.date }} 🕒 {{ r.time }}</p>
           <p class="text-gray-600">📝 {{ r.description }}</p>
+
         </li>
       </ul>
     </div>
@@ -32,10 +35,12 @@ import axios from 'axios'
 
 const form = ref({
   discordNickname: '',
+  course: '',
   date: '',
   time: '',
   description: '',
 })
+
 
 const error = ref('')
 const success = ref(false)
