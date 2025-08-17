@@ -50,7 +50,7 @@ async function submitReservation() {
   error.value = ''
   success.value = false
   try {
-    await axios.post('https://demos-rezervacije-backend-2.onrender.com/api/reservations', form.value)
+    await axios.post('https://demos-rezervacije-backend-4.onrender.com/api/reservations', form.value)
     success.value = true
     form.value = { discordNickname: '', date: '', time: '', description: '' }
     await fetchReservations() // refresha overview odmah
@@ -58,10 +58,10 @@ async function submitReservation() {
     error.value = err.response?.data?.message || 'Greška kod slanja.'
   }
 }
-
+// TEST: https://demos-rezervacije-backend-4.onrender.com/api/reservations
 async function fetchReservations() {
   try {
-    const res = await axios.get('https://demos-rezervacije-backend-2.onrender.com/api/reservations')
+    const res = await axios.get('https://demos-rezervacije-backend-4.onrender.com/api/reservations')
     // sort po datumu + vremenu (opcionalno)
     reservations.value = res.data.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
   } catch (err) {
