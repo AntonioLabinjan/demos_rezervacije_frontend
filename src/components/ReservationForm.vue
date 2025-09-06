@@ -78,7 +78,7 @@ async function submitReservation() {
   errorReservation.value = ''
   successReservation.value = false
   try {
-    await axios.post('http://localhost:3000/api/reservations', formReservation.value)
+    await axios.post('https://demos-rezervacije-backend-2.onrender.com/api/reservations', formReservation.value)
     successReservation.value = true
     formReservation.value = { discordNickname: '', date: '', time: '', description: '', course: '' }
     await fetchReservations()
@@ -88,7 +88,7 @@ async function submitReservation() {
 }
 async function fetchReservations() {
   try {
-    const res = await axios.get('http://localhost:3000/api/reservations')
+    const res = await axios.get('https://demos-rezervacije-backend-2.onrender.com/api/reservations')
     reservations.value = res.data.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
   } catch (err) {
     console.error('Greška kod dohvaćanja rezervacija', err)
@@ -127,7 +127,7 @@ async function submitProblem() {
 }
 async function fetchProblems() {
   try {
-    const res = await axios.get('http://localhost:3000/api/problems')
+    const res = await axios.get('https://demos-rezervacije-backend-2.onrender.com/api/problems')
     problems.value = res.data
   } catch (err) {
     console.error('Greška kod dohvaćanja problema', err)
@@ -148,3 +148,4 @@ onMounted(() => {
   @apply bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700;
 }
 </style>
+
