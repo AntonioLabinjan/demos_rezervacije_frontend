@@ -1,4 +1,5 @@
-https://fipu-rezerviraj-demose.netlify.app/
+https://fipu-demos.netlify.app/
+
 - Redoslijed: 
  1) podesit mongo na 0.0.0.0/0 da ga moremo gađat od svuda
  2) obavezno stavit najnoviju verziju package.jsona i package lock.jsona na github i za frontend i za backend
