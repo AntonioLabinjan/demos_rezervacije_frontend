@@ -206,7 +206,7 @@ async function submitReservation() {
   errorReservation.value = ''
   successReservation.value = false
   try {
-    await axios.post('https://demos-rezervacije-backend-4.onrender.com/api/reservations', formReservation.value)
+    await axios.post('/api/reservations', formReservation.value)
     successReservation.value = true
     formReservation.value = { discordNickname: '', date: '', time: '', description: '', course: '' }
     await fetchReservations()
@@ -278,7 +278,7 @@ onMounted(() => {
 
 .app {
   min-height: 100vh;
-  background: linear-gradient(135deg, #0a0d14 0%, #1a1f2e 50%, #2d3748 100%);
+  background: linear-gradient(135deg, #a3bffa 0%, #667eea 100%);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   color: #e2e8f0;
   line-height: 1.6;
