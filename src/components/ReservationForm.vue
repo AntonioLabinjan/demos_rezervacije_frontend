@@ -206,7 +206,7 @@ async function submitReservation() {
   errorReservation.value = ''
   successReservation.value = false
   try {
-    await axios.post('/api/reservations', formReservation.value)
+    await axios.post('http://localhost:3000/api/reservations', formReservation.value)
     successReservation.value = true
     formReservation.value = { discordNickname: '', date: '', time: '', description: '', course: '' }
     await fetchReservations()
@@ -216,7 +216,7 @@ async function submitReservation() {
 }
 async function fetchReservations() {
   try {
-    const res = await axios.get('https://demos-rezervacije-backend-4.onrender.com/api/reservations')
+    const res = await axios.get('http://localhost:3000/api/reservations')
     reservations.value = res.data.sort((a, b) => new Date(a.dateTime) - new Date(b.dateTime))
   } catch (err) {
     console.error('Greška kod dohvaćanja rezervacija', err)
@@ -245,7 +245,7 @@ async function submitProblem() {
         ? formProblem.value.images.split(',').map(i => i.trim())
         : []
     }
-    await axios.post('https://demos-rezervacije-backend-4.onrender.com/api/problems', payload)
+    await axios.post('http://localhost:3000/api/problems', payload)
     successProblem.value = true
     formProblem.value = { discordNickname: '', course: '', language: '', description: '', images: '' }
     await fetchProblems()
@@ -255,7 +255,7 @@ async function submitProblem() {
 }
 async function fetchProblems() {
   try {
-    const res = await axios.get('https://demos-rezervacije-backend-4.onrender.com/api/problems')
+    const res = await axios.get('http://localhost:3000/api/problems')
     problems.value = res.data
   } catch (err) {
     console.error('Greška kod dohvaćanja problema', err)
