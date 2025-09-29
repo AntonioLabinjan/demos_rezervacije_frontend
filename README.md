@@ -1,2 +1,8 @@
 https://fipu-soudemos.netlify.app/
-Dodat sekciju za discord inviteove na foru: upišeš ime kolegije i dobiš link za discord invite ako postoji
+
+
+TODO: 
+- login za demose
+- demos ima mark as dane opciju (v-if isDemos...)
+- filter kolegij->demos...zna se koji demos vidi koje kolegije
+- taj neki mail approval kurac
