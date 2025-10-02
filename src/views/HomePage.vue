@@ -10,7 +10,7 @@
         <form @submit.prevent="submitReservation" class="form">
           <div class="input-group">
             <label>Discord korisničko ime</label>
-            <input v-model="formReservation.discordNickname" placeholder="Unesite Discord nick" required class="input" />
+            <input v-model="formReservation.discordNickname" placeholder="Unesite unipu email" required class="input" />
           </div>
           <div class="input-row">
             <div class="input-group">
@@ -76,7 +76,7 @@
         <form @submit.prevent="submitProblem" class="form">
           <div class="input-group">
             <label>Discord korisničko ime</label>
-            <input v-model="formProblem.discordNickname" placeholder="Unesite Discord nick" required class="input" />
+            <input v-model="formProblem.discordNickname" placeholder="Unesite unipu email" required class="input" />
           </div>
           <div class="input-group">
             <label>Kolegij</label>
@@ -156,7 +156,7 @@ const courseTags = {
 }
 
 const formReservation = ref({
-  discordNickname: '',
+  email: '',
   course: '',
   date: '',
   time: '',
@@ -175,7 +175,7 @@ async function submitReservation() {
     await axios.post('http://localhost:3000/api/reservations', formReservation.value)
     successReservation.value = true
     formReservation.value = { 
-      discordNickname: '', 
+      email: '', 
       date: '', 
       time: '', 
       description: '', 
@@ -194,7 +194,7 @@ async function submitReservation() {
 
 // PROBLEMI
 const formProblem = ref({
-  discordNickname: '',
+  email: '',
   course: '',
   language: '',
   description: '',
@@ -231,7 +231,7 @@ async function submitProblem() {
     }
     await axios.post('http://localhost:3000/api/problems', payload)
     successProblem.value = true
-    formProblem.value = { discordNickname: '', course: '', language: '', description: '', images: '', tags: [] }
+    formProblem.value = { email: '', course: '', language: '', description: '', images: '', tags: [] }
     availableTags.value = []
     setTimeout(() => {
       successProblem.value = false
@@ -261,4 +261,5 @@ function toggleReservationTag(tag) {
 .home-page {
   width: 100%;
 }
+
 </style>
