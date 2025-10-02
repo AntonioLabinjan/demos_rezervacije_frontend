@@ -9,8 +9,8 @@
         </div>
         <form @submit.prevent="submitReservation" class="form">
           <div class="input-group">
-            <label>Discord korisničko ime</label>
-            <input v-model="formReservation.discordNickname" placeholder="Unesite unipu email" required class="input" />
+            <label>Unipu email</label>
+            <input v-model="formReservation.email" placeholder="Unesite unipu email" required class="input" />
           </div>
           <div class="input-row">
             <div class="input-group">
@@ -263,3 +263,4 @@ function toggleReservationTag(tag) {
 }
 
 </style>
+
