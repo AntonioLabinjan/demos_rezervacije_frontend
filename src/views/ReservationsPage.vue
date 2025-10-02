@@ -16,7 +16,7 @@
               <div class="user-info">
                 <div class="avatar">{{ r.discordNickname.charAt(0).toUpperCase() }}</div>
                 <div class="user-details">
-                  <h3>{{ r.discordNickname }}</h3>
+                  <h3>{{ r.email }}</h3>
                   <span class="course-tag">{{ r.course }}</span>
                 </div>
               </div>
@@ -137,7 +137,7 @@ const courseTags = {
 const reservations = ref([])
 const editingReservation = ref(null)
 const editForm = ref({
-  discordNickname: '',
+  email: '',
   date: '',
   time: '',
   description: '',
@@ -166,7 +166,7 @@ async function fetchReservations() {
 function startEdit(reservation) {
   editingReservation.value = reservation
   editForm.value = {
-    discordNickname: reservation.discordNickname,
+    email: reservation.email,
     date: reservation.date,
     time: reservation.time,
     description: reservation.description,
@@ -180,7 +180,7 @@ function startEdit(reservation) {
 function cancelEdit() {
   editingReservation.value = null
   editForm.value = {
-    discordNickname: '',
+    email: '',
     date: '',
     time: '',
     description: '',
@@ -434,4 +434,5 @@ onMounted(() => {
     width: 100%;
   }
 }
+
 </style>
