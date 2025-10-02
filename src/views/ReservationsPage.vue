@@ -14,7 +14,7 @@
           <div v-for="r in reservations" :key="r._id" class="reservation-card">
             <div class="reservation-header">
               <div class="user-info">
-                <div class="avatar">{{ r.discordNickname.charAt(0).toUpperCase() }}</div>
+                <div class="avatar">{{ r.email.charAt(0).toUpperCase() }}</div>
                 <div class="user-details">
                   <h3>{{ r.email }}</h3>
                   <span class="course-tag">{{ r.course }}</span>
@@ -60,8 +60,8 @@
         </div>
         <form @submit.prevent="saveEdit" class="form">
           <div class="input-group">
-            <label>Discord korisničko ime</label>
-            <input v-model="editForm.discordNickname" required class="input" />
+            <label>Unipu email</label>
+            <input v-model="editForm.email" required class="input" />
           </div>
           <div class="input-row">
             <div class="input-group">
@@ -436,3 +436,4 @@ onMounted(() => {
 }
 
 </style>
+
