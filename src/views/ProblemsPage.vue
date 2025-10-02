@@ -14,9 +14,9 @@
           <div v-for="p in problems" :key="p._id" class="problem-card">
             <div class="problem-header">
               <div class="user-info">
-                <div class="avatar">{{ p.discordNickname.charAt(0).toUpperCase() }}</div>
+                <div class="avatar">{{ p.email.charAt(0).toUpperCase() }}</div>
                 <div class="user-details">
-                  <h3>{{ p.discordNickname }}</h3>
+                  <h3>{{ p.email }}</h3>
                   <div class="tags">
                     <span class="course-tag">{{ p.course }}</span>
                     <span v-if="p.language" class="language-tag">{{ p.language }}</span>
@@ -68,8 +68,8 @@
         </div>
         <form @submit.prevent="saveEdit" class="form">
           <div class="input-group">
-            <label>Discord korisničko ime</label>
-            <input v-model="editForm.discordNickname" required class="input" />
+            <label>Unipu email</label>
+            <input v-model="editForm.email" required class="input" />
           </div>
           <div class="input-group">
             <label>Kolegij</label>
@@ -143,7 +143,7 @@ const courseTags = {
 const problems = ref([])
 const editingProblem = ref(null)
 const editForm = ref({
-  discordNickname: '',
+  email: '',
   course: '',
   language: '',
   description: '',
@@ -177,7 +177,7 @@ function formatDate(dateStr) {
 function startEdit(problem) {
   editingProblem.value = problem
   editForm.value = {
-    discordNickname: problem.discordNickname,
+    email: problem.email,
     course: problem.course,
     language: problem.language || '',
     description: problem.description,
@@ -191,7 +191,7 @@ function startEdit(problem) {
 function cancelEdit() {
   editingProblem.value = null
   editForm.value = {
-    discordNickname: '',
+    email: '',
     course: '',
     language: '',
     description: '',
@@ -220,7 +220,7 @@ async function saveEdit() {
   editError.value = ''
   try {
     const payload = {
-      discordNickname: editForm.value.discordNickname,
+      email: editForm.value.email,
       course: editForm.value.course,
       language: editForm.value.language,
       description: editForm.value.description,
@@ -479,4 +479,5 @@ onMounted(() => {
     width: 100%;
   }
 }
+
 </style>
