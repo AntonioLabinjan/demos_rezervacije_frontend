@@ -66,7 +66,7 @@ const form = reactive({
   course: ''
 })
 
-const API_BASE = "http://localhost:3000"
+const API_BASE = "https://demos-rezervacije-backend-4.onrender.com"
 
 function toggleMode() {
   isLogin.value = !isLogin.value
@@ -219,4 +219,5 @@ input:focus, select:focus {
 .link:hover {
   text-decoration: underline;
 }
+
 </style>
