@@ -155,7 +155,7 @@ const editError = ref('')
 
 async function fetchProblems() {
   try {
-    const res = await axios.get('http://localhost:3000/api/problems')
+    const res = await axios.get('https://demos-rezervacije-backend-4.onrender.com/api/problems')
     problems.value = res.data
   } catch (err) {
     console.error('Greška kod dohvaćanja problema', err)
@@ -229,7 +229,7 @@ async function saveEdit() {
         : [],
       tags: editForm.value.tags
     }
-    await axios.put(`http://localhost:3000/api/problems/${editingProblem.value._id}`, payload)
+    await axios.put(`https://demos-rezervacije-backend-4.onrender.com/api/problems/${editingProblem.value._id}`, payload)
     await fetchProblems()
     cancelEdit()
   } catch (err) {
@@ -241,7 +241,7 @@ async function deleteProblem(id) {
   if (!confirm('Jeste li sigurni da želite obrisati ovaj problem?')) return
   
   try {
-    await axios.delete(`http://localhost:3000/api/problems/${id}`)
+    await axios.delete(`https://demos-rezervacije-backend-4.onrender.com/api/problems/${id}`)
     await fetchProblems()
   } catch (err) {
     console.error('Greška kod brisanja', err)
@@ -481,3 +481,4 @@ onMounted(() => {
 }
 
 </style>
+
