@@ -156,7 +156,7 @@ const editError = ref('')
 async function fetchReservations() {
   try {
     const token = localStorage.getItem('token')
-    const res = await axios.get('http://localhost:3000/api/reservations', {
+    const res = await axios.get('https://demos-rezervacije-backend-4.onrender.com/api/reservations', {
       headers: { Authorization: `Bearer ${token}` }
     })
 
@@ -211,7 +211,7 @@ async function saveEdit() {
   try {
     const token = localStorage.getItem('token')
     await axios.put(
-      `http://localhost:3000/api/reservations/${editingReservation.value._id}`,
+      `https://demos-rezervacije-backend-4.onrender.com/api/reservations/${editingReservation.value._id}`,
       editForm.value,
       { headers: { Authorization: `Bearer ${token}` } }
     )
@@ -226,7 +226,7 @@ async function deleteReservation(id) {
   if (!confirm('Jeste li sigurni da želite obrisati ovu rezervaciju?')) return
   try {
     const token = localStorage.getItem('token')
-    await axios.delete(`http://localhost:3000/api/reservations/${id}`, {
+    await axios.delete(`https://demos-rezervacije-backend-4.onrender.com/api/reservations/${id}`, {
       headers: { Authorization: `Bearer ${token}` }
     })
     await fetchReservations()
@@ -347,3 +347,4 @@ onMounted(fetchReservations)
 }
 
 </style>
+
