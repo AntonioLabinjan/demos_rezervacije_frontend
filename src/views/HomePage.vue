@@ -193,7 +193,7 @@ async function submitReservation() {
   errorReservation.value = ''
   successReservation.value = false
   try {
-    await axios.post('http://localhost:3000/api/reservations', formReservation.value)
+    await axios.post('https://demos-rezervacije-backend-4.onrender.com/api/reservations', formReservation.value)
     successReservation.value = true
     formReservation.value = { 
       email: '', 
@@ -245,7 +245,7 @@ async function submitProblem() {
         ? formProblem.value.images.split(',').map(i => i.trim())
         : []
     }
-    await axios.post('http://localhost:3000/api/problems', payload)
+    await axios.post('https://demos-rezervacije-backend-4.onrender.com/api/problems', payload)
     successProblem.value = true
     formProblem.value = { email: '', course: '', language: '', description: '', images: '', tags: [] }
     availableTags.value = []
@@ -274,3 +274,4 @@ function toggleReservationTag(tag) {
 }
 
 </style>
+
